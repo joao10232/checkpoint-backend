@@ -1,0 +1,37 @@
+{
+  "name": "checkpoint",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx sucrase-node ./src/server.ts",
+    "build": "tsc",
+    "startjs": "node dist/server.js",
+    "startbuild": "tsc && node dist/server.js",
+    "migration:generatejs": "typeorm -d ./dist/database/connection/connect.js migration:generate ./dist/database/migrations/default",
+    "migration:create": "typeorm migration:create ./src/database/migrations/migration",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/database/connection/connect.ts",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js -d ./src/database/connection/connect.ts migration:generate ./src/database/migrations/default",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/database/connection/connect.ts",
+    "migration:show": "ts-node ./node_modules/typeorm/cli.js migration:show -d ./src/database/connection/connect.ts",
+    "migration:sync": "ts-node ./node_modules/typeorm/cli.js migration:sync -d ./src/database/connection/connect.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.8.1",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.6.3"
+  }
+}

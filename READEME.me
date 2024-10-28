@@ -1,0 +1,46 @@
+ROTAS:
+FAZER LOGIN
+ROTA (POST): localhost:3030/usuario/login
+PAYLOAD: {
+	"usuario_email":"guilherme@teste.com.br",
+	"usuario_password": "123"
+}
+-----------------------------------------------------------------
+CRIAR USUARIO
+ROTA (POST) : localhost:3030/usuarios/add
+PYLADO:{
+	"usuario_nome": "guilherme",
+	"usuario_email": "guilherme@teste.com.br",
+	"usuario_password": "123"
+}
+-----------------------------------------------------------------
+BUSCAR USUARIO
+ROTA: (GET) localhost:3030/usuarios/search?usuario_nome=guilherme
+-----------------------------------------------------------------
+EDUTAR USUARIO
+ROTA (PUT): localhost:3030/usuarios/edit/3
+{
+	"usuario_nome": "guilherme",
+	"usuario_email": "guilherme@teste.com.br",
+	"usuario_password": "123"
+}
+
+
+SQL PARA INICIAR O BANCO DE DADOS NA MÁQUINA
+
+CREATE DATABASE checkpoint;
+CREATE USER 'checkpoint'@'%' IDENTIFIED BY 'checkpoint';
+GRANT ALL PRIVILEGES ON *.* TO 'checkpoint'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON checkpoint.* TO 'checkpoint'@'%' WITH GRANT OPTION;
+
+-----------------------------------------------------------------
+ATUALIZAR O PROJETO
+NO TERMINAL DENTRO DO PROJETO DIGITE: npm update
+-----------------------------------------------------------------
+MIGRATION:
+criar: npm run migration:generate
+criar: npm run migration:run
+-----------------------------------------------------------------
+BUILDAR E INICIAR O PROJETO
+npm run startbuild
+-----------------------------------------------------------------
